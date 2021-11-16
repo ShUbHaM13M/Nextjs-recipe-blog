@@ -25,7 +25,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps () {
-  const res = await fetch(`http://localhost:3000/api/recipe`)
+  const res = await fetch(`${process.env.SERVER_URL}/api/recipe`)
   const data = await res.json()
 
   if (data) 
