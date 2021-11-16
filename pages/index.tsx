@@ -25,9 +25,10 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps () {
-  let url = process.env.VERCEL_URL  
+  let url = `${process.env.VERCEL_URL}api/recipe`
+  console.log(url)
 
-  const res = await fetch(`${url}/api/recipe`)
+  const res = await fetch(url)
   const data = await res.json()
 
   if (data) 
