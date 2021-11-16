@@ -4,7 +4,9 @@ import styles from '../styles/Home.module.css'
 
 export default function Home(props) {
 
-  const {recipes} = props;
+  const {data, url} = props;
+  console.log(url)
+
 
   return (
     <div className={styles.container}>
@@ -17,7 +19,7 @@ export default function Home(props) {
       <h1 className="is-size-2 py-2 has-text-centered">Free Recipes</h1>
 
       <div className="section">
-        <RecipeList recipes={recipes} />
+        <RecipeList recipes={data.recipes} />
       </div>
 
     </div>
@@ -33,7 +35,14 @@ export async function getServerSideProps () {
 
   if (data) 
     return {
-      props: data
+      props: {
+        data,
+        url
+      },
     }
-  return { notFound: true }
+  return {
+    props: {
+      url
+    }
+  }
 }
