@@ -26,7 +26,7 @@ export default function Home(props) {
 
 export async function getServerSideProps () {
   let url = process.env.SERVER_URL  
-  if (process.env.NODE_ENV == 'production') {
+  if (process.env.VERCEL_URL) {
     url = process.env.Vercel_URL === 'https://something-else.now.sh'? 'https://exmaple.com': process.env.Vercel_URL
   }
 
