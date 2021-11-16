@@ -5,11 +5,10 @@ import styles from '../styles/Home.module.css'
 export default function Home(props) {
 
   const {data, url} = props;
-  console.log(url)
-
-
+  
   return (
     <div className={styles.container}>
+      {console.log(url)}
       <Head>
         <title>Recipes</title>
         <meta name="description" content="Free Recipes" />
