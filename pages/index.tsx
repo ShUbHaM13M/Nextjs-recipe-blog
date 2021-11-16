@@ -4,11 +4,10 @@ import styles from '../styles/Home.module.css'
 
 export default function Home(props) {
 
-  const {data, url} = props;
+  const {recipes} = props.data;
   
   return (
     <div className={styles.container}>
-      {console.log(url)}
       <Head>
         <title>Recipes</title>
         <meta name="description" content="Free Recipes" />
@@ -18,7 +17,7 @@ export default function Home(props) {
       <h1 className="is-size-2 py-2 has-text-centered">Free Recipes</h1>
 
       <div className="section">
-        <RecipeList recipes={data.recipes} />
+        <RecipeList recipes={recipes} />
       </div>
 
     </div>
@@ -34,14 +33,9 @@ export async function getServerSideProps () {
 
   if (data) 
     return {
-      props: {
-        data,
-        url
-      },
+      props: { data }
     }
   return {
-    props: {
-      url
-    }
+    notFound: true
   }
 }
