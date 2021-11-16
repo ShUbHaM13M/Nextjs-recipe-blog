@@ -25,10 +25,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps () {
-  let url = process.env.SERVER_URL  
-  if (process.env.VERCEL_URL) {
-    url = process.env.VERCEL_URL === 'https://something-else.now.sh'? 'https://exmaple.com': process.env.VERCEL_URL
-  }
+  let url = process.env.VERCEL_URL  
 
   const res = await fetch(`${url}/api/recipe`)
   const data = await res.json()
